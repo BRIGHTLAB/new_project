@@ -5,6 +5,10 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ClassController;
+use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\EnrollmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +28,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login',[AuthController::class, 'login']);
 Route::post('/logout',[AuthController::class, 'logout']);
 
+Route::apiResource('students', StudentController::class);
+Route::apiResource('classes', ClassController::class);
+Route::apiResource('scores', ScoreController::class);
+Route::apiResource('enrollments', EnrollmentController::class);
+// Route::get('students', [ StudentController::class, 'index']);
+// Route::post('students', [ StudentController::class, 'store']);
+// Route::get('classes/{id}', [ StudentController::class, 'show']);
+// Route::post('classes', [ StudentController::class, 'store']);
